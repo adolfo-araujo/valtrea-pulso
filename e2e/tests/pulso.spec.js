@@ -46,9 +46,12 @@ for (const [nome, rota] of [
 
 async function criarConta(page, nome, email) {
   await page.goto('/cadastro')
-  await page.getByLabel('Nome').fill(nome)
+  const [primeiro, ...resto] = nome.split(' ')
+  await page.getByLabel('Nome', { exact: true }).fill(primeiro)
+  await page.getByLabel('Sobrenome').fill(resto.join(' ') || 'Teste')
   await page.getByLabel('E-mail').fill(email)
-  await page.getByLabel('Senha').fill('senha-forte-123')
+  await page.getByLabel('Senha', { exact: true }).fill('senha-forte-123')
+  await page.getByLabel('Confirmar senha').fill('senha-forte-123')
   await page.getByLabel(/Tenho 18 anos/).check()
   await page.getByRole('button', { name: 'Criar conta' }).click()
   await expect(page.getByRole('heading', { name: 'Confirme seu e-mail' })).toBeVisible()
