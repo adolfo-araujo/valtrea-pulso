@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Versão de uma cor (ícones temáticos do Android 13+): só o desenho, sem o quadrado. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group android:scaleX="1.875" android:scaleY="1.875" android:translateX="24" android:translateY="24">
+        <path
+            android:pathData="M5,17H11L13.5,10L18,23L20.5,17H27"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2.6"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
+</vector>
