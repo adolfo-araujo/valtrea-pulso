@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /minhas
+Disallow: /conta
+Disallow: /bairro
+Disallow: /nova

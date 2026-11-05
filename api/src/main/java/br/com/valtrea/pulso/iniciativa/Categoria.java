@@ -1,0 +1,5 @@
+package br.com.valtrea.pulso.iniciativa;
+
+public enum Categoria {
+	ILUMINACAO, LIMPEZA, SEGURANCA, TRANSITO, CALCADAS_E_RUAS, AREAS_VERDES, SAUDE, EDUCACAO, LAZER, TRANSPORTE, OUTROS
+}
