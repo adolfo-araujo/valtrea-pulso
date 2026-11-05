@@ -6,7 +6,7 @@ CREATE TABLE bairros (
     id              UUID PRIMARY KEY,
     nome            VARCHAR(80)  NOT NULL,
     cidade          VARCHAR(80)  NOT NULL,
-    uf              CHAR(2)      NOT NULL,
+    uf              VARCHAR(2)   NOT NULL,
     chave           VARCHAR(200) NOT NULL,
     criado_em       TIMESTAMPTZ  NOT NULL,
     CONSTRAINT uk_bairros_chave UNIQUE (chave)

@@ -27,7 +27,7 @@ public class Bairro {
 	@Column(nullable = false, length = 80)
 	private String cidade;
 
-	@Column(nullable = false, length = 2, columnDefinition = "char(2)")
+	@Column(nullable = false, length = 2)
 	private String uf;
 
 	/** UF + cidade + nome sem acentos, em minúsculas: "Vila Mariana" e "vila  mariana" são o mesmo bairro. */
