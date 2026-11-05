@@ -82,10 +82,10 @@ test('fluxo completo: escolher o bairro, publicar, o vizinho apoia e todos veem'
   await page.getByRole('button', { name: 'Publicar' }).click()
   await expect(page.getByRole('heading', { name: 'Trocar a lâmpada do poste da esquina' })).toBeVisible()
   await expect(page.getByText('0 apoios')).toBeVisible()
-  await page.getByLabel('O que aconteceu?').fill('Abri o pedido 2026-123 no 156.')
+  await page.getByLabel('O que aconteceu?').fill('Falei com a subprefeitura hoje.')
   await page.getByLabel('Fase').selectOption('EM_ANDAMENTO')
   await page.getByRole('button', { name: 'Publicar novidade' }).click()
-  await expect(page.getByText('Abri o pedido 2026-123 no 156.')).toBeVisible()
+  await expect(page.getByText('Falei com a subprefeitura hoje.')).toBeVisible()
   await semProblemasDeAcessibilidade(page, 'iniciativa da autora')
   const endereco = new URL(page.url()).pathname
 

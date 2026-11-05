@@ -87,9 +87,10 @@ abstract class IntegracaoBase {
 	record Atualizacao(UUID id, String texto, String fase) {
 	}
 
+	/** Tipos com caixa: a mesma classe lê as respostas de erro (sem esses campos) nos testes que esperam 4xx. */
 	record Iniciativa(UUID id, Bairro bairro, String titulo, String descricao, String categoria, String fase,
-			String autor, long apoios, List<Atualizacao> atualizacoes, boolean apoiei, boolean denunciei, boolean minha,
-			boolean oculta) {
+			String autor, Long apoios, List<Atualizacao> atualizacoes, Boolean apoiei, Boolean denunciei, Boolean minha,
+			Boolean oculta) {
 	}
 
 	record Resumo(UUID id, UUID bairroId, String titulo, String fase, String autor, long apoios, boolean apoiei,

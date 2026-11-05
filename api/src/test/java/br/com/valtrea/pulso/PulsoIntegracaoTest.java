@@ -69,15 +69,15 @@ class PulsoIntegracaoTest extends IntegracaoBase {
 
 		String bruno = morador("Bruno Lima", bairro.id());
 		String carla = morador("Carla Dias", bairro.id());
-		assertThat(apoiar(bruno, poste.id()).getBody().apoios()).isEqualTo(1);
-		assertThat(apoiar(bruno, poste.id()).getBody().apoios()).as("apoiar de novo não conta duas vezes").isEqualTo(1);
-		assertThat(apoiar(carla, poste.id()).getBody().apoios()).isEqualTo(2);
+		assertThat(apoiar(bruno, poste.id()).getBody().apoios()).isEqualTo(1L);
+		assertThat(apoiar(bruno, poste.id()).getBody().apoios()).as("apoiar de novo não conta duas vezes").isEqualTo(1L);
+		assertThat(apoiar(carla, poste.id()).getBody().apoios()).isEqualTo(2L);
 		assertThat(apoiar(ana, poste.id()).getStatusCode().value()).as("a autora não apoia a própria").isEqualTo(409);
 
 		// Quem não entrou vê a lista e o detalhe, só com o primeiro nome da autora.
 		List<Resumo> lista = doBairro(bairro.id(), null, "");
 		assertThat(lista).extracting(Resumo::titulo).containsExactly("Trocar a lâmpada do poste da esquina");
-		assertThat(lista.getFirst().apoios()).isEqualTo(2);
+		assertThat(lista.getFirst().apoios()).isEqualTo(2L);
 		assertThat(lista.getFirst().apoiei()).isFalse();
 		ResponseEntity<String> aberto = publico("/iniciativas/" + poste.id());
 		assertThat(aberto.getStatusCode().value()).isEqualTo(200);
