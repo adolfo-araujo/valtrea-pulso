@@ -63,7 +63,7 @@ function Denunciar({ iniciativa, aoDenunciar }) {
         <p className="mb-2 text-sm text-muted">Com 3 denúncias, a iniciativa some até a nossa revisão. Ninguém fica sabendo que foi você.</p>
         {Object.entries(MOTIVOS).map(([valor, rotulo]) => (
           <label key={valor} className="flex min-h-10 items-center gap-2.5 text-sm">
-            <input type="radio" name={nome} value={valor} checked={motivo === valor} onChange={() => setMotivo(valor)} className="h-4 w-4 accent-[#55B02E]" />
+            <input type="radio" name={nome} value={valor} checked={motivo === valor} onChange={() => setMotivo(valor)} className="h-4 w-4 accent-[#22C55E]" />
             {rotulo}
           </label>
         ))}
@@ -149,7 +149,7 @@ export function IniciativaPage() {
         <Fase fase={i.fase} />
         <span className="text-sm text-muted">{CATEGORIAS[i.categoria]}</span>
       </div>
-      <h1 className="mt-2 text-3xl font-extrabold leading-tight tracking-tight">{i.titulo}</h1>
+      <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight">{i.titulo}</h1>
       <p className="mt-2 text-sm text-muted">Por {i.minha ? 'você' : i.autor}, em {dataCurta(i.criadoEm)}</p>
       <p className="mt-6 whitespace-pre-line leading-relaxed">{i.descricao}</p>
 
