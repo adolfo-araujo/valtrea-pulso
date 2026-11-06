@@ -1,5 +1,12 @@
 # Play Console: respostas dos formulários
 
+## Acesso ao app (Política → Conteúdo do app → Acesso ao app)
+
+- **Todas ou algumas funcionalidades são restritas:** sim, é preciso entrar com uma conta.
+- **Instruções para a revisão do Google:** Cadastre uma conta no app (ex.: revisao-play@valtrea.com.br), confirme o e-mail, escolha um bairro e publique uma iniciativa de exemplo. Informe no Console o e-mail e a senha dessa conta. Use uma senha só para isso.
+
+- **Apps governamentais:** o Pulso **não** é um app do governo e não representa nenhum órgão público (isso está na descrição e nos Termos).
+
 ## Segurança dos dados (Política → Conteúdo do app → Segurança dos dados)
 
 - O app coleta ou compartilha dados do usuário? **Sim**

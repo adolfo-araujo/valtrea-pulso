@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#0B1712"/>
+  <!-- Mesmo desenho do ícone do app (viewBox 32), ampliado e centralizado. -->
+  <g transform="translate(64 64) scale(12)"><path d="M5 17H11L13.5 10L18 23L20.5 17H27" stroke="#55B02E" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>
