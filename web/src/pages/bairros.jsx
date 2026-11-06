@@ -162,7 +162,7 @@ export function BairroPage() {
             <MapPin className="h-4 w-4" aria-hidden="true" /> {bairro ? `${bairro.cidade} - ${bairro.uf}` : '…'}
             {meuBairro && <span className="ml-2 rounded-full border border-primary/50 px-2 text-xs">seu bairro</span>}
           </p>
-          <h1 className="mt-1 text-3xl font-extrabold tracking-tight">{bairro?.nome ?? 'Carregando…'}</h1>
+          <h1 className="mt-1 text-3xl font-bold tracking-tight">{bairro?.nome ?? 'Carregando…'}</h1>
         </div>
         {meuBairro ? (
           <Link to="/nova" className={estilos.primario}><Plus className="h-4 w-4" aria-hidden="true" /> Nova iniciativa</Link>

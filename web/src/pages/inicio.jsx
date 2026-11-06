@@ -27,11 +27,11 @@ export function InicioPage() {
         </div>
       </section>
       <section aria-labelledby="ver-bairro" className={estilos.cartao}>
-        <h2 id="ver-bairro" className="mb-4 text-xl font-extrabold">Veja o que o seu bairro está pedindo</h2>
+        <h2 id="ver-bairro" className="mb-4 text-xl font-bold">Veja o que o seu bairro está pedindo</h2>
         <BuscaBairros />
       </section>
       <section aria-labelledby="como-funciona" className="mt-10 border-t border-border py-10">
-        <h2 id="como-funciona" className="text-2xl font-extrabold">Como funciona</h2>
+        <h2 id="como-funciona" className="text-2xl font-bold">Como funciona</h2>
         <ol className="mt-8 grid gap-6 sm:grid-cols-3">
           {PASSOS.map(({ icone: Icone, titulo, texto }) => (
             <li key={titulo} className={estilos.cartao}>
