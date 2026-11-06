@@ -1,7 +1,7 @@
 import { Link, Navigate } from 'react-router-dom'
 import { Heart, Megaphone, ShieldCheck, TrendingUp } from 'lucide-react'
 import { useAuth } from '../lib/auth'
-import { Pagina, estilos } from '../components/ui'
+import { Pagina, estilos, ComoInstalarNoIphone } from '../components/ui'
 import { BuscaBairros } from './bairros'
 
 const PASSOS = [
@@ -25,6 +25,7 @@ export function InicioPage() {
           <Link to="/cadastro" className={estilos.primario}>Criar conta grátis</Link>
           <Link to="/entrar" className={estilos.secundario}>Já tenho conta</Link>
         </div>
+        <ComoInstalarNoIphone />
       </section>
       <section aria-labelledby="ver-bairro" className={estilos.cartao}>
         <h2 id="ver-bairro" className="mb-4 text-xl font-bold">Veja o que o seu bairro está pedindo</h2>
