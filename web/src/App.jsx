@@ -6,11 +6,30 @@ import { InicioPage } from './pages/inicio'
 import { CadastroPage, ConfirmarEmailPage, EntrarPage, EsqueciSenhaPage } from './pages/auth'
 import { BairroPage, EscolherBairroPage } from './pages/bairros'
 import { FormIniciativaPage, IniciativaPage, MinhasPage } from './pages/iniciativas'
-import { CartazPage } from './pages/divulgar'
+import { AbaixoAssinadoPage, CartazPage } from './pages/divulgar'
 import { ContaPage } from './pages/conta'
 import { AcessibilidadePage, ExcluirContaPage, PrivacidadePage, TermosPage } from './pages/legal'
 import { AjudaPage } from './pages/ajuda'
 import { NovidadesPage } from './pages/novidades'
+import { BuscaRapida } from './components/busca-rapida'
+
+// Telas da busca rápida (Ctrl+K): rótulo, endereço, palavras para achar
+const TELAS = [
+  ["Início", "/", "home"],
+  ["Meu painel", "/painel", "bairro"],
+  ["Nova iniciativa", "/nova", "criar propor"],
+  ["Minhas iniciativas", "/minhas", ""],
+  ["Escolher meu bairro", "/bairro", "trocar bairro"],
+  ["Minha conta", "/conta", "perfil senha baixar dados excluir"],
+  ["Entrar", "/entrar", "login"],
+  ["Criar conta", "/cadastro", "cadastro"],
+  ["Central de ajuda", "/ajuda", "duvidas perguntas suporte"],
+  ["Novidades", "/novidades", "mudancas versao"],
+  ["Termos de uso", "/termos", "contrato"],
+  ["Política de privacidade", "/privacidade", "lgpd dados"],
+  ["Acessibilidade", "/acessibilidade", ""],
+  ["Excluir conta (como fazer)", "/excluir-conta", "apagar"],
+]
 
 function Carregando() {
   return <Pagina><p className="text-muted">Carregando…</p></Pagina>
@@ -35,6 +54,7 @@ function Painel() {
 export default function App() {
   return (
     <>
+      <BuscaRapida itens={TELAS} />
       <AvisoTermos />
       <Routes>
         <Route path="/" element={<InicioPage />} />
@@ -48,6 +68,7 @@ export default function App() {
         <Route path="/bairro" element={<Protegida><EscolherBairroPage /></Protegida>} />
         <Route path="/nova" element={<Protegida><FormIniciativaPage /></Protegida>} />
         <Route path="/i/:id/cartaz" element={<CartazPage />} />
+        <Route path="/i/:id/abaixo-assinado" element={<AbaixoAssinadoPage />} />
         <Route path="/i/:id/editar" element={<Protegida><FormIniciativaPage /></Protegida>} />
         <Route path="/minhas" element={<Protegida><MinhasPage /></Protegida>} />
         <Route path="/conta" element={<Protegida><ContaPage /></Protegida>} />

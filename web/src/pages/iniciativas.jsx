@@ -5,7 +5,7 @@ import { CATEGORIAS, FASES, MOTIVOS, chamar, dataCurta } from '../lib/api'
 import { useAuth } from '../lib/auth'
 import { Campo, Mensagem, Pagina, estilos, useEnvio } from '../components/ui'
 import { avisosDoTexto, parecidas } from '../lib/texto'
-import { Divulgar } from './divulgar'
+import { CanaisOficiais, Divulgar } from './divulgar'
 
 const COR_FASE = {
   ABERTA: 'border-primary/50 text-primary',
@@ -172,6 +172,13 @@ export function IniciativaPage() {
         <section aria-labelledby="divulgar" className={`${estilos.cartao} mt-6`}>
           <h2 id="divulgar" className="mb-3 text-lg font-bold">Chame mais vizinhos</h2>
           <Divulgar iniciativa={i} />
+        </section>
+      )}
+
+      {!i.oculta && (i.fase === 'ABERTA' || i.fase === 'EM_ANDAMENTO') && (
+        <section aria-labelledby="canais" className={`${estilos.cartao} mt-6`}>
+          <h2 id="canais" className="mb-3 text-lg font-bold">Leve o pedido ao poder público</h2>
+          <CanaisOficiais />
         </section>
       )}
 

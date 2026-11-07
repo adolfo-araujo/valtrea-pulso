@@ -25,6 +25,10 @@ const SECOES = [
     "Iniciativas",
     [
       [
+        "Como levo o pedido à prefeitura?",
+        "Na página da iniciativa, em \"Leve o pedido ao poder público\", estão os canais oficiais (central de atendimento, ouvidoria, Câmara). Imprima o abaixo-assinado em \"Chame mais vizinhos\" para colher assinaturas no papel e anexe ao pedido. Depois, conte o número do protocolo nas novidades."
+      ],
+      [
         "Como publico uma iniciativa?",
         "Escolha o seu bairro, toque em Nova iniciativa, escreva um título claro e explique onde é, desde quando e quem é afetado. É preciso ter o e-mail confirmado, e cada pessoa pode publicar até 3 por dia."
       ],
@@ -62,6 +66,10 @@ const SECOES = [
   [
     "Conta e dados",
     [
+      [
+        "Tem atalho para ir mais rápido?",
+        "No computador, aperte Ctrl+K (ou Cmd+K no Mac) ou a tecla / em qualquer tela. Digite o que procura, como \"conta\" ou \"ajuda\", e aperte Enter."
+      ],
       [
         "O site demorou para abrir. É normal?",
         "Quando o serviço fica um tempo sem uso, a primeira ação pode levar até 1 minuto, porque o servidor estava em repouso. Aparece o aviso \"Acordando o servidor\" e, depois disso, fica rápido."
