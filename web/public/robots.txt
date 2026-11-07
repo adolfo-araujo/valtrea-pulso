@@ -1,5 +1,11 @@
 User-agent: *
-Disallow: /minhas
+Allow: /
+Disallow: /confirmar-email
+Disallow: /esqueci-senha
 Disallow: /conta
-Disallow: /bairro
+Disallow: /minhas
 Disallow: /nova
+Disallow: /bairro
+Disallow: /painel
+
+Sitemap: https://pulso.valtrea.com.br/sitemap.xml

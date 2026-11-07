@@ -9,8 +9,8 @@ import { Divulgar } from './divulgar'
 
 const COR_FASE = {
   ABERTA: 'border-primary/50 text-primary',
-  EM_ANDAMENTO: 'border-amber-400/60 text-amber-300',
-  RESOLVIDA: 'border-sky-400/60 text-sky-300',
+  EM_ANDAMENTO: 'border-amber-400/60 text-amber-800 dark:text-amber-300',
+  RESOLVIDA: 'border-sky-400/60 text-sky-700 dark:text-sky-300',
   ARQUIVADA: 'border-border text-muted',
 }
 
@@ -287,7 +287,7 @@ export function FormIniciativaPage() {
         {avisos.length > 0 && (
           <div role="status" className="rounded-xl border border-amber-400/50 bg-surface p-4 text-sm">
             <p className="flex items-center gap-2 font-semibold">
-              <TriangleAlert className="h-4 w-4 text-amber-300" aria-hidden="true" /> Confira antes de publicar
+              <TriangleAlert className="h-4 w-4 text-amber-700 dark:text-amber-300" aria-hidden="true" /> Confira antes de publicar
             </p>
             <ul className="mt-1 list-disc space-y-0.5 pl-5 text-muted">
               {avisos.map((a) => <li key={a}>{a}</li>)}

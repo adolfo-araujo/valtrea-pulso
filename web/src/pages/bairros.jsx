@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { MapPin, Plus } from 'lucide-react'
 import { FASES, UFS, chamar } from '../lib/api'
 import { useAuth } from '../lib/auth'
-import { Campo, Mensagem, Pagina, estilos, useEnvio } from '../components/ui'
+import { Campo, Mensagem, Pagina, PrimeirosPassos, estilos, useEnvio } from '../components/ui'
 import { CartaoIniciativa } from './iniciativas'
 
 export const nomeDoBairro = (b) => `${b.nome}, ${b.cidade} - ${b.uf}`
@@ -172,6 +172,16 @@ export function BairroPage() {
           <Link to="/cadastro" className={estilos.primario}>Criar conta para participar</Link>
         )}
       </div>
+
+      {meuBairro && lista && (
+        <PrimeirosPassos passos={[
+          { feito: Boolean(perfil?.emailConfirmado), titulo: 'Confirme seu e-mail', texto: 'Para publicar e apoiar.', para: '/confirmar-email', rotulo: 'Confirmar agora' },
+          { feito: true, titulo: 'Escolha o seu bairro' },
+          { feito: lista.some((i) => i.apoiei || i.minha), titulo: 'Apoie ou publique uma iniciativa',
+            texto: lista.length > 0 ? 'Abra uma iniciativa abaixo e toque em Apoiar, ou publique a sua.' : 'Ainda não há iniciativas aqui: seja a primeira pessoa a publicar.',
+            para: '/nova', rotulo: 'Nova iniciativa' },
+        ]} />
+      )}
 
       <div className="mb-4 grid grid-cols-2 gap-3 sm:max-w-md">
         <div>
