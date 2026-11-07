@@ -9,6 +9,7 @@ import { FormIniciativaPage, IniciativaPage, MinhasPage } from './pages/iniciati
 import { CartazPage } from './pages/divulgar'
 import { ContaPage } from './pages/conta'
 import { AcessibilidadePage, ExcluirContaPage, PrivacidadePage, TermosPage } from './pages/legal'
+import { AjudaPage } from './pages/ajuda'
 
 function Carregando() {
   return <Pagina><p className="text-muted">Carregando…</p></Pagina>
@@ -49,6 +50,7 @@ export default function App() {
         <Route path="/i/:id/editar" element={<Protegida><FormIniciativaPage /></Protegida>} />
         <Route path="/minhas" element={<Protegida><MinhasPage /></Protegida>} />
         <Route path="/conta" element={<Protegida><ContaPage /></Protegida>} />
+        <Route path="/ajuda" element={<AjudaPage />} />
         <Route path="/termos" element={<TermosPage />} />
         <Route path="/privacidade" element={<PrivacidadePage />} />
         <Route path="/acessibilidade" element={<AcessibilidadePage />} />
