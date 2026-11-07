@@ -6,6 +6,7 @@ import { InicioPage } from './pages/inicio'
 import { CadastroPage, ConfirmarEmailPage, EntrarPage, EsqueciSenhaPage } from './pages/auth'
 import { BairroPage, EscolherBairroPage } from './pages/bairros'
 import { FormIniciativaPage, IniciativaPage, MinhasPage } from './pages/iniciativas'
+import { CartazPage } from './pages/divulgar'
 import { ContaPage } from './pages/conta'
 import { AcessibilidadePage, ExcluirContaPage, PrivacidadePage, TermosPage } from './pages/legal'
 
@@ -44,6 +45,7 @@ export default function App() {
         <Route path="/i/:id" element={<IniciativaPage />} />
         <Route path="/bairro" element={<Protegida><EscolherBairroPage /></Protegida>} />
         <Route path="/nova" element={<Protegida><FormIniciativaPage /></Protegida>} />
+        <Route path="/i/:id/cartaz" element={<CartazPage />} />
         <Route path="/i/:id/editar" element={<Protegida><FormIniciativaPage /></Protegida>} />
         <Route path="/minhas" element={<Protegida><MinhasPage /></Protegida>} />
         <Route path="/conta" element={<Protegida><ContaPage /></Protegida>} />

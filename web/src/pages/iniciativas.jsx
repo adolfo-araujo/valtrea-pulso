@@ -1,9 +1,11 @@
-import { useEffect, useId, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { EyeOff, Flag, Heart, MapPin, Pencil } from 'lucide-react'
+import { EyeOff, Flag, Heart, Lightbulb, MapPin, Pencil, TriangleAlert } from 'lucide-react'
 import { CATEGORIAS, FASES, MOTIVOS, chamar, dataCurta } from '../lib/api'
 import { useAuth } from '../lib/auth'
 import { Campo, Mensagem, Pagina, estilos, useEnvio } from '../components/ui'
+import { avisosDoTexto, parecidas } from '../lib/texto'
+import { Divulgar } from './divulgar'
 
 const COR_FASE = {
   ABERTA: 'border-primary/50 text-primary',
@@ -166,6 +168,13 @@ export function IniciativaPage() {
       </div>
       <Mensagem tipo="erro">{erro}</Mensagem>
 
+      {!i.oculta && (i.fase === 'ABERTA' || i.fase === 'EM_ANDAMENTO') && (
+        <section aria-labelledby="divulgar" className={`${estilos.cartao} mt-6`}>
+          <h2 id="divulgar" className="mb-3 text-lg font-bold">Chame mais vizinhos</h2>
+          <Divulgar iniciativa={i} />
+        </section>
+      )}
+
       <section aria-labelledby="historico" className="mt-8">
         <h2 id="historico" className="text-xl font-bold">Acompanhamento</h2>
         {i.atualizacoes.length === 0 ? (
@@ -216,6 +225,16 @@ export function FormIniciativaPage() {
     if (id) chamar('GET', `/iniciativas/${id}`).then((i) => setDados({ titulo: i.titulo, descricao: i.descricao, categoria: i.categoria }))
   }, [id])
 
+  // Iniciativas abertas do bairro, para avisar se já existe uma parecida (comparação feita aqui no navegador)
+  const [doBairro, setDoBairro] = useState([])
+  useEffect(() => {
+    if (id || !perfil?.bairro?.id) return
+    chamar('GET', `/bairros/${perfil.bairro.id}/iniciativas`).then(setDoBairro).catch(() => setDoBairro([]))
+  }, [id, perfil?.bairro?.id])
+  const semelhantes = useMemo(() => (id ? [] : parecidas(dados.titulo, dados.categoria, doBairro)),
+    [id, dados.titulo, dados.categoria, doBairro])
+  const avisos = useMemo(() => avisosDoTexto(`${dados.titulo}\n${dados.descricao}`), [dados.titulo, dados.descricao])
+
   if (!id && !perfil?.bairro) {
     return (
       <Pagina titulo="Nova iniciativa" largura="max-w-2xl">
@@ -249,6 +268,33 @@ export function FormIniciativaPage() {
         <Campo rotulo="O que precisa e por quê" as="textarea" maxLength={2000} value={dados.descricao}
           onChange={(e) => setDados({ ...dados, descricao: e.target.value })}
           dica="Conte onde é, desde quando e quem é afetado. Não coloque nome, telefone ou endereço de pessoas, nem propaganda." />
+        {semelhantes.length > 0 && (
+          <div role="status" className="rounded-xl border border-primary/40 bg-surface p-4 text-sm">
+            <p className="flex items-center gap-2 font-semibold">
+              <Lightbulb className="h-4 w-4 text-primary" aria-hidden="true" /> Já existe algo parecido no bairro
+            </p>
+            <p className="mt-1 text-muted">Apoiar uma iniciativa que já existe junta mais vizinhos no mesmo pedido.</p>
+            <ul className="mt-2 space-y-1">
+              {semelhantes.map((s) => (
+                <li key={s.id}>
+                  <Link to={`/i/${s.id}`} className={estilos.link}>{s.titulo}</Link>
+                  <span className="text-muted"> · {apoiosTexto(s.apoios)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {avisos.length > 0 && (
+          <div role="status" className="rounded-xl border border-amber-400/50 bg-surface p-4 text-sm">
+            <p className="flex items-center gap-2 font-semibold">
+              <TriangleAlert className="h-4 w-4 text-amber-300" aria-hidden="true" /> Confira antes de publicar
+            </p>
+            <ul className="mt-1 list-disc space-y-0.5 pl-5 text-muted">
+              {avisos.map((a) => <li key={a}>{a}</li>)}
+            </ul>
+            <p className="mt-1 text-muted">Iniciativas que expõem pessoas ou fazem campanha podem ser denunciadas e ocultadas.</p>
+          </div>
+        )}
         <Mensagem tipo="erro">{erro}</Mensagem>
         <button type="submit" className={`${estilos.primario} w-full`}
           disabled={enviando || dados.titulo.trim().length < 8 || dados.descricao.trim().length < 20}>
