@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { EyeOff, Flag, Heart, Lightbulb, MapPin, Pencil, TriangleAlert } from 'lucide-react'
 import { CATEGORIAS, FASES, MOTIVOS, chamar, dataCurta } from '../lib/api'
 import { useAuth } from '../lib/auth'
-import { Campo, Mensagem, Pagina, estilos, useEnvio } from '../components/ui'
+import { Campo, Carregando, Mensagem, Pagina, Vazio, estilos, useEnvio } from '../components/ui'
 import { avisosDoTexto, parecidas } from '../lib/texto'
 import { CanaisOficiais, Divulgar } from './divulgar'
 
@@ -129,7 +129,7 @@ export function IniciativaPage() {
       </Pagina>
     )
   }
-  if (!i) return <Pagina largura="max-w-3xl"><p className="text-muted">{aviso || 'Carregando…'}</p></Pagina>
+  if (!i) return <Pagina largura="max-w-3xl">{aviso ? <p className="text-muted">{aviso}</p> : <Carregando linhas={2} />}</Pagina>
 
   const podeApoiar = !i.minha && (i.fase === 'ABERTA' || i.fase === 'EM_ANDAMENTO')
   const apoiar = () => {
@@ -323,7 +323,7 @@ export function MinhasPage() {
     <Pagina titulo="Minhas iniciativas">
       <Mensagem tipo="erro">{erro}</Mensagem>
       {lista?.length === 0 && (
-        <p className="text-muted">Você ainda não publicou nada. <Link to="/nova" className={estilos.link}>Publicar a primeira</Link></p>
+        <Vazio titulo="Você ainda não publicou nada" texto="Uma calçada quebrada, um poste apagado, uma praça para cuidar: conte o que precisa melhorar e chame os vizinhos para apoiar." acao={['Publicar a primeira', '/nova']} />
       )}
       <ul className="grid gap-4 sm:grid-cols-2">
         {lista?.map((i) => <li key={i.id}><CartaoIniciativa iniciativa={i} /></li>)}

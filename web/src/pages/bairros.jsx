@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { MapPin, Plus } from 'lucide-react'
 import { FASES, UFS, chamar } from '../lib/api'
 import { useAuth } from '../lib/auth'
-import { Campo, Mensagem, Pagina, PrimeirosPassos, estilos, useEnvio } from '../components/ui'
+import { Campo, Mensagem, Pagina, PrimeirosPassos, Vazio, estilos, useEnvio } from '../components/ui'
 import { CartaoIniciativa } from './iniciativas'
 
 export const nomeDoBairro = (b) => `${b.nome}, ${b.cidade} - ${b.uf}`
@@ -205,9 +205,9 @@ export function BairroPage() {
 
       <Mensagem tipo="erro">{erro}</Mensagem>
       {lista?.length === 0 && (
-        <p className="rounded-xl border border-dashed border-border p-6 text-center text-muted">
-          Nenhuma iniciativa aqui ainda. {meuBairro ? 'Que tal publicar a primeira?' : ''}
-        </p>
+        <Vazio titulo="Nenhuma iniciativa aqui ainda"
+          texto={meuBairro ? 'Seja a primeira pessoa a propor uma melhoria para o bairro.' : 'Quando os moradores publicarem pedidos de melhoria, eles aparecem aqui.'}
+          acao={meuBairro ? ['Publicar a primeira', '/nova'] : null} />
       )}
       <ul className="grid gap-4 sm:grid-cols-2">
         {lista?.map((i) => <li key={i.id}><CartaoIniciativa iniciativa={i} /></li>)}

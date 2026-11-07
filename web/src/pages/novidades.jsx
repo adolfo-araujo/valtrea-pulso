@@ -5,6 +5,7 @@ const VERSOES = [
   [
     "7 de novembro de 2026",
     [
+      "Telas de carregamento, mensagens de erro mais claras e listas vazias com o próximo passo.",
       "Abaixo-assinado em A4 para colher assinaturas no papel e levar à prefeitura.",
       "Na iniciativa, os canais oficiais para registrar o pedido (central de atendimento, ouvidoria, Câmara).",
       "Busca rápida: aperte Ctrl+K (ou / ) no computador para ir a qualquer tela."

@@ -4,7 +4,7 @@ Documento interno (LGPD art. 37), no formato simplificado para agente de tratame
 
 - **Controlador:** João Adolfo Martins Araújo (pessoa física), Rio de Janeiro/RJ
 - **Encarregado / canal:** sem encarregado indicado (dispensa de pequeno porte); canal: contato@valtrea.com.br
-- **Elaborado em:** 05/11/2026 · **Revisar:** a cada 12 meses ou a cada nova funcionalidade que trate dados
+- **Elaborado em:** 05/11/2026 · **Atualizado em:** 07/11/2026 · **Revisar:** a cada 12 meses ou a cada nova funcionalidade que trate dados
 - **Serviço:** Valtrea Pulso (site pulso.valtrea.com.br, app Android e API valtrea-pulso-api.onrender.com), em testes
 
 ## Operações
@@ -47,3 +47,9 @@ Documento interno (LGPD art. 37), no formato simplificado para agente de tratame
 - Conteúdo político: reclamações sobre o bairro podem citar governos e políticos. Os Termos proíbem propaganda, pedido de voto e ataques; em período eleitoral, revisar a fila de moderação com mais frequência.
 - Dados de terceiros: alguém pode citar uma pessoa (vizinho, comerciante). O formulário avisa; a denúncia "Expõe uma pessoa" e a remoção pela administração tratam o caso (Marco Civil, art. 19 e 21).
 - Apoios podem revelar opinião: por isso só a contagem é pública e nem a administração vê a lista.
+
+## Revisão de 07/11/2026
+
+- Abaixo-assinado em papel: a página só monta a folha com dados públicos da iniciativa e o número de apoios. Nomes, endereços e assinaturas são colhidos no papel por quem organiza, fora do sistema; o Pulso não recebe nem guarda esses dados. A própria folha avisa que eles servem só para apresentar o pedido ao órgão público.
+- Quadro "Leve o pedido ao poder público": texto fixo, sem dados.
+- Busca rápida (Ctrl+K), telas de carregamento, de erro e de lista vazia: sem dados novos.

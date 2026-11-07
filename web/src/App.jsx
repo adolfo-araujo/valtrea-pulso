@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { useAuth } from './lib/auth'
 import { AvisoTermos } from './components/aviso-termos'
-import { Pagina } from './components/ui'
+import { Carregando, Pagina } from './components/ui'
 import { InicioPage } from './pages/inicio'
 import { CadastroPage, ConfirmarEmailPage, EntrarPage, EsqueciSenhaPage } from './pages/auth'
 import { BairroPage, EscolherBairroPage } from './pages/bairros'
@@ -31,13 +31,13 @@ const TELAS = [
   ["Excluir conta (como fazer)", "/excluir-conta", "apagar"],
 ]
 
-function Carregando() {
-  return <Pagina><p className="text-muted">Carregando…</p></Pagina>
+function CarregandoPagina() {
+  return <Pagina><Carregando /></Pagina>
 }
 
 function Protegida({ children }) {
   const { perfil, carregando } = useAuth()
-  if (carregando) return <Carregando />
+  if (carregando) return <CarregandoPagina />
   if (!perfil) return <Navigate to="/entrar" replace />
   return children
 }
@@ -45,7 +45,7 @@ function Protegida({ children }) {
 /** Depois de entrar: o bairro da pessoa ou, se ainda não escolheu, a escolha. */
 function Painel() {
   const { perfil, carregando } = useAuth()
-  if (carregando) return <Carregando />
+  if (carregando) return <CarregandoPagina />
   if (!perfil) return <Navigate to="/entrar" replace />
   if (!perfil.emailConfirmado) return <Navigate to="/confirmar-email" replace />
   return <Navigate to={perfil.bairro ? `/b/${perfil.bairro.id}` : '/bairro'} replace />
