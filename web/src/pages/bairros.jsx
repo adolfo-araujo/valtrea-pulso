@@ -14,7 +14,7 @@ function SeletorUf({ valor, aoMudar, rotulo = 'Estado', vazio = 'Todos' }) {
     <div>
       <label htmlFor={id} className="text-sm font-semibold">{rotulo}</label>
       <select id={id} value={valor} onChange={(e) => aoMudar(e.target.value)}
-        className="mt-1 h-11 w-full rounded-lg border border-border bg-background px-3 text-foreground">
+        className="mt-1 h-11 w-full rounded-xl border border-border bg-surface px-3 text-foreground">
         {vazio !== null && <option value="">{vazio}</option>}
         {UFS.map((uf) => <option key={uf} value={uf}>{uf}</option>)}
       </select>
@@ -187,7 +187,7 @@ export function BairroPage() {
         <div>
           <label htmlFor={idFase} className="text-sm font-semibold">Mostrar</label>
           <select id={idFase} value={fase} onChange={(e) => setFase(e.target.value)}
-            className="mt-1 h-11 w-full rounded-lg border border-border bg-background px-3 text-foreground">
+            className="mt-1 h-11 w-full rounded-xl border border-border bg-surface px-3 text-foreground">
             <option value="">Abertas e em andamento</option>
             <option value="RESOLVIDA">{FASES.RESOLVIDA}s</option>
             <option value="ARQUIVADA">{FASES.ARQUIVADA}s</option>
@@ -196,7 +196,7 @@ export function BairroPage() {
         <div>
           <label htmlFor={idOrdem} className="text-sm font-semibold">Ordenar por</label>
           <select id={idOrdem} value={ordem} onChange={(e) => setOrdem(e.target.value)}
-            className="mt-1 h-11 w-full rounded-lg border border-border bg-background px-3 text-foreground">
+            className="mt-1 h-11 w-full rounded-xl border border-border bg-surface px-3 text-foreground">
             <option value="recentes">Mais recentes</option>
             <option value="apoios">Mais apoiadas</option>
           </select>

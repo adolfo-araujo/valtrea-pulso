@@ -98,7 +98,7 @@ function NovaAtualizacao({ iniciativa, aoAtualizar }) {
       <div>
         <label htmlFor={idFase} className="text-sm font-semibold">Fase</label>
         <select id={idFase} value={fase} onChange={(e) => setFase(e.target.value)}
-          className="mt-1 h-11 w-full rounded-lg border border-border bg-background px-3 text-foreground sm:max-w-xs">
+          className="mt-1 h-11 w-full rounded-xl border border-border bg-surface px-3 text-foreground sm:max-w-xs">
           {Object.entries(FASES).map(([v, r]) => <option key={v} value={v}>{r}</option>)}
         </select>
       </div>
@@ -155,7 +155,7 @@ export function IniciativaPage() {
       <p className="mt-2 text-sm text-muted">Por {i.minha ? 'você' : i.autor}, em {dataCurta(i.criadoEm)}</p>
       <p className="mt-6 whitespace-pre-line leading-relaxed">{i.descricao}</p>
 
-      <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-6 flex flex-col gap-3 vidro rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between">
         <p className="flex items-center gap-2 text-lg font-bold" aria-live="polite">
           <Heart className="h-5 w-5 fill-primary text-primary" aria-hidden="true" /> {apoiosTexto(i.apoios)}
         </p>
@@ -268,7 +268,7 @@ export function FormIniciativaPage() {
         <div>
           <label htmlFor={idCategoria} className="text-sm font-semibold">Categoria</label>
           <select id={idCategoria} value={dados.categoria} onChange={(e) => setDados({ ...dados, categoria: e.target.value })}
-            className="mt-1 h-11 w-full rounded-lg border border-border bg-background px-3 text-foreground">
+            className="mt-1 h-11 w-full rounded-xl border border-border bg-surface px-3 text-foreground">
             {Object.entries(CATEGORIAS).map(([v, r]) => <option key={v} value={v}>{r}</option>)}
           </select>
         </div>
