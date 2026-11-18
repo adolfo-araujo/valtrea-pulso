@@ -152,7 +152,7 @@ function Rodape() {
           <Link to="/ajuda" className="hover:text-foreground hover:underline">Ajuda</Link>
           <Link to="/novidades" className="hover:text-foreground hover:underline">Novidades</Link>
           <LinkSugestao />
-          <BotaoTema />
+          <BotaoTema className="xl:hidden" />
           <Link to="/termos" className="hover:text-foreground hover:underline">Termos de uso</Link>
           <Link to="/privacidade" className="hover:text-foreground hover:underline">Privacidade</Link>
           <Link to="/acessibilidade" className="hover:text-foreground hover:underline">Acessibilidade</Link>
@@ -258,7 +258,7 @@ export function TelaAuth({ titulo, subtitulo, children, abaixo }) {
           <Link to="/ajuda" className="hover:text-foreground hover:underline">Ajuda</Link>
           <Link to="/novidades" className="hover:text-foreground hover:underline">Novidades</Link>
           <LinkSugestao />
-          <BotaoTema />
+          <BotaoTema className="xl:hidden" />
           <Link to="/termos" className="hover:text-foreground hover:underline">Termos de uso</Link>
           <Link to="/privacidade" className="hover:text-foreground hover:underline">Política de privacidade</Link>
           <Link to="/acessibilidade" className="hover:text-foreground hover:underline">Acessibilidade</Link>
